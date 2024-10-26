@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Checker</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .main {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .result-box {
+            width: 45%;
+            min-height: 150px;
+            border: 2px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #555;
+            text-align: left;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #0e8da3e1;
+            text-align: center;
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Vowel Checker</h1>
+        <input type="text" id="charInput" placeholder="Enter text here" />
+        <button onclick="checkChar()">Check Vowels</button>
+        <div class="main">
+            <div id="result" class="result-box">
+                <h2>Vowels:</h2>
+                <p id="vowelText"></p>
+            </div>
+            <div id="result2" class="result-box">
+                <h2>Non-vowels:</h2>
+                <p id="nonVowelText"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkChar() {
+            var input = document.getElementById("charInput").value;
+            var vowels = "aeiouAEIOU";
+            var vowelResult = "";
+            var nonVowelResult = "";
+
+            for (var i = 0; i < input.length; i++) {
+                var char = input[i];
+                if (vowels.indexOf(char) !== -1) {
+                    vowelResult += char + " ";
+                } else if (char.match(/[a-zA-Z]/)) {
+                    nonVowelResult += char + " ";
+                }
+            }
+
+            document.getElementById("vowelText").innerHTML = vowelResult;
+            document.getElementById("nonVowelText").innerHTML = nonVowelResult;
+        }
+    </script>
+</body>
+</html>
